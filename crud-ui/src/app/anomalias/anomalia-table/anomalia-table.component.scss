@@ -1,20 +1,10 @@
-.mat-column-_id {
-  width: 32px;
+.mat-column-_id,
+.mat-column-equipamento,
+.mat-column-falha {
+  flex: 0 0 32px;
   border-right: 1px solid currentColor;
-  padding-right: 24px;
   text-align: center;
 }
-
-
-.mat-column-equipamento{
-  width: 32px;
-  border-right: 1px solid currentColor;
-  padding-right: 24px;
-  text-align: center;
-}
-.mat-column-falha{
-  width: 32px;
-  border-right: 1px solid currentColor;
-  padding-right: 24px;
-  text-align: center;
+table {
+  flex: 100%;
 }

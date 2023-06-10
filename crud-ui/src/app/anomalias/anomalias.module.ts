@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { AnomaliasRoutingModule } from './anomalias-routing.module';
 import { AnomaliaTableComponent } from './anomalia-table/anomalia-table.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatCardModule} from '@angular/material/card';
+
+import { AppMaterialModule } from '../shared/app-material/app-material.module';
+
 
 
 @NgModule({
@@ -15,8 +16,7 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     CommonModule,
     AnomaliasRoutingModule,
-    MatTableModule,
-    MatCardModule
+    AppMaterialModule
   ]
 })
 export class AnomaliasModule { }

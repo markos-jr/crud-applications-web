@@ -8,8 +8,6 @@ export interface Anomalias {
 
 }
 
-
-
 @Component({
   selector: 'app-anomalia-table',
   templateUrl: './anomalia-table.component.html',
