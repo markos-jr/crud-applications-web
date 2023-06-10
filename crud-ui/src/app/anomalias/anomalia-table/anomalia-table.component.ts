@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnomaliasService } from '../services/anomalias.service';
 
 
 export interface Anomalias {
@@ -18,16 +19,18 @@ export class AnomaliaTableComponent implements OnInit {
   displayedColumns: string[] = ['_id', 'equipamento', 'falha'];
 
 
-  anomalias: Anomalias[] = [
-    {_id: '1', equipamento: 'CCM1', falha: 'Elétrica'}
-  ];
+  anomalias: Anomalias[] = [];
 
-  constructor(){
+  //anomaliasService: AnomaliasService;
+
+  constructor(private anomaliasService: AnomaliasService){
     //this.anomalias = []
+    //this.anomaliasService = new AnomaliasService();
+
   }
 
   ngOnInit(): void {
-
+    this.anomalias = this.anomaliasService.list(); // Pode ficar dentro do construtor também
   }
 
 }
