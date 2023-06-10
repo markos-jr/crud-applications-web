@@ -1,1 +1,30 @@
-<p>anomalia-table works!</p>
+
+<mat-card class="custom-card" >
+  <mat-card-content>
+
+<table mat-table [dataSource]="anomalias" class="mat-elevation-z8 demo-table">
+  <!-- Position Column -->
+  <ng-container matColumnDef="_id">
+    <th mat-header-cell *matHeaderCellDef> _Id </th>
+    <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+  </ng-container>
+
+  <!-- Equipamemento Colum -->
+  <ng-container matColumnDef="equipamento">
+    <th mat-header-cell *matHeaderCellDef> Equipamento </th>
+    <td mat-cell *matCellDef="let element"> {{element.equipamento}} </td>
+  </ng-container>
+
+  <!-- Falha Column -->
+  <ng-container matColumnDef="falha">
+    <th mat-header-cell *matHeaderCellDef> Falha </th>
+    <td mat-cell *matCellDef="let element"> {{element.falha}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+  </mat-card-content>
+</mat-card>
