@@ -8,3 +8,11 @@
 table {
   flex: 100%;
 }
+
+.loading-spinner{
+  background-color: #009e9d ;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
