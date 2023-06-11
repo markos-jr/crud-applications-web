@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnomaliasService } from '../services/anomalias.service';
+import { Observable } from 'rxjs';
 
 
 export interface Anomalias {
@@ -19,7 +20,7 @@ export class AnomaliaTableComponent implements OnInit {
   displayedColumns: string[] = ['_id', 'equipamento', 'falha'];
 
 
-  anomalias: Anomalias[] = [];
+  anomalias: Observable<Anomalias[]>;
 
   //anomaliasService: AnomaliasService;
 
@@ -27,10 +28,13 @@ export class AnomaliaTableComponent implements OnInit {
     //this.anomalias = []
     //this.anomaliasService = new AnomaliasService();
 
+      this.anomalias = this.anomaliasService.list();
+   /*  this.anomaliasService.list().subscribe( anomalias => this.anomalias = anomalias) */
+
   }
 
   ngOnInit(): void {
-    this.anomalias = this.anomaliasService.list(); // Pode ficar dentro do construtor também
+     // Pode ficar dentro do construtor também
   }
 
 }

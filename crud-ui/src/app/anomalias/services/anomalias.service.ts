@@ -7,11 +7,11 @@ import {HttpClient} from '@angular/common/http'
 })
 export class AnomaliasService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(public httpClient: HttpClient) { }
 
-  list(): Anomalias[] {
-    return[
-      {_id: '1', equipamento: 'CCM1', falha: 'Elétrica'}
-    ]
+  private readonly API = '/assets/anomalias.json'
+
+  list(){
+   return this.httpClient.get<Anomalias[]>(this.API);
   }
 }
