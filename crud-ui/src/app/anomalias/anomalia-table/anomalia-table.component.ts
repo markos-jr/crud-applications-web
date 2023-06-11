@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AnomaliasService } from '../services/anomalias.service';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 export interface Anomalias {
   _id: string;
@@ -18,14 +20,26 @@ export class AnomaliaTableComponent implements OnInit {
 
   anomalias$: Observable<Anomalias[]>;
 
-  //anomaliasService: AnomaliasService;
 
-  constructor(private anomaliasService: AnomaliasService) {
-    //this.anomalias = []
-    //this.anomaliasService = new AnomaliasService();
+  constructor(
+    private anomaliasService: AnomaliasService,
+    public dialog: MatDialog
 
-    this.anomalias$ = this.anomaliasService.list();
-    /*  this.anomaliasService.list().subscribe( anomalias => this.anomalias = anomalias) */
+    ) {
+
+    this.anomalias$ = this.anomaliasService.list().pipe(
+      catchError(error => {
+        this.onError('Erro ao carregar as Anomalias')
+        return of([])
+      })
+    )
+
+  }
+
+  onError(erroMsg: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: erroMsg
+    });
   }
 
   ngOnInit(): void {
