@@ -10,7 +10,7 @@ export class AnomaliasService {
 
   constructor(public httpClient: HttpClient) { }
 
-  private readonly API = '/assets/anomalias.json'
+  private readonly API = 'api/anomalias'
 
   list(){
    return this.httpClient.get<Anomalias[]>(this.API)
