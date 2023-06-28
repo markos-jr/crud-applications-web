@@ -6,12 +6,14 @@ import { AnomaliaTableComponent } from './anomalia-table/anomalia-table.componen
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
+import { AnomaliaFormComponent } from './anomalia-form/anomalia-form.component';
 
 
 
 @NgModule({
   declarations: [
-    AnomaliaTableComponent
+    AnomaliaTableComponent,
+    AnomaliaFormComponent
 
   ],
   imports: [
